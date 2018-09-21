@@ -34,42 +34,6 @@ jobs:
           - docker build -f Dockerfile -t $IMAGE:$COMMIT ./
 
         deploy:
-sudo: required
-
-language: go
-go: "1.10"
-
-services:
-  - docker
-
-env:
-  global:
-    - COMMIT=${TRAVIS_COMMIT::8}
-    - IMAGE=installer
-    - DEP_VERSION="0.4.1"
-
-jobs:
-  include:
-      - stage: "Install DEP"
-        before_install:
-          - curl -L -s https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-linux-amd64 -o $GOPATH/bin/dep
-          - chmod +x $GOPATH/bin/dep
-          - cd go        
-        install:
-          - dep ensure -v
-         
-        script: 
-          - go test -v $( go list ./...)
-          - cd ..
-
-        before_deploy:  
-          - docker run --rm -v "$PWD/go":/go/src/installer -w /go/src/installer iron/go:dev go build -o installer
-          - cd go
-          - (ls installer && echo yes) || echo no
-          - cd ..
-          - docker build -f Dockerfile -t $IMAGE:$COMMIT ./
-
-        deploy:
           provider: script  
           script: bash deploy.sh
           on:
