@@ -40,13 +40,13 @@
     "ansible",
     "ssh"
   ]
-  revision = "a575376fd41bffe0162e498d58c593771161dbb2"
+  revision = "d2540f8a3ce9e196d89b003f5918b4cd44744ecb"
 
 [[projects]]
   branch = "master"
   name = "github.com/lagoon-platform/installer"
   packages = ["."]
-  revision = "edb33b17d89e46bf35ff53d1fac96ab4d308bc53"
+  revision = "8f36635a49f9905a67eb7e658868c7b2ffd7691e"
 
 [[projects]]
   branch = "master"

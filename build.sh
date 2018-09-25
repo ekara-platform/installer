@@ -11,10 +11,10 @@ else
 	if [ "$2" = "" ]
 	then
 		echo "   using only http_proxy..."
-		docker build --build-arg http_proxy="$1" --build-arg https_proxy="$1" -t lagoonplatform/installer:alpha2 .     
+		docker build --build-arg http_proxy="$1" --build-arg https_proxy="$1" -t lagoonplatform/installer .     
 	else
 		echo "   using http_proxy and https_proxy..."
-		docker build --build-arg http_proxy="$1" --build-arg https_proxy="$2" -t lagoonplatform/installer:alpha2 .     
+		docker build --build-arg http_proxy="$1" --build-arg https_proxy="$2" -t lagoonplatform/installer .     
 	fi		
 fi
 
