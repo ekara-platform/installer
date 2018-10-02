@@ -1,6 +1,6 @@
 # Building the Installer image
 
-The image can be built using the script `build.sh`
+The image can be built locally using the script `build.sh`
 
 This script accepts two parameters
 
