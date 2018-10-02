@@ -11,8 +11,8 @@
     "trees/binaryheap",
     "utils"
   ]
-  revision = "7aedbffbedb86457447efbed4c7a99395ac3b5ba"
-  version = "v1.11.0"
+  revision = "1615341f118ae12f353cc8a983f35b584342c9b3"
+  version = "v1.12.0"
 
 [[projects]]
   name = "github.com/imdario/mergo"
@@ -40,19 +40,19 @@
     "ansible",
     "ssh"
   ]
-  revision = "d2540f8a3ce9e196d89b003f5918b4cd44744ecb"
+  revision = "db08cb3aae329ae9a0ada6319d9534f362cf2f7d"
 
 [[projects]]
   branch = "master"
   name = "github.com/lagoon-platform/installer"
   packages = ["."]
-  revision = "8f36635a49f9905a67eb7e658868c7b2ffd7691e"
+  revision = "22090ec11e653c1d1d8285058e3738db1c5f4de3"
 
 [[projects]]
   branch = "master"
   name = "github.com/lagoon-platform/model"
   packages = ["."]
-  revision = "24295414c6e9188af14361fb40616ee298f4aa8a"
+  revision = "d0940ab67a86ff7585aa3f824faccc158af85fda"
 
 [[projects]]
   name = "github.com/mitchellh/go-homedir"
@@ -110,19 +110,19 @@
     "ssh/agent",
     "ssh/knownhosts"
   ]
-  revision = "0e37d006457bf46f9e6692014ba72ef82c33022c"
+  revision = "e3636079e1a4c1f337f212cc5cd2aca108f6c900"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context"]
-  revision = "2f5d2388922f370f4355f327fcf4cfe9f5583908"
+  revision = "4dfa2610cdf3b287375bbba5b8f2a14d3b01d8de"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["windows"]
-  revision = "d641721ec2dead6fe5ca284096fe4b1fcd49e427"
+  revision = "e4b3c5e9061176387e7cea65e4dc5853801f3fb7"
 
 [[projects]]
   name = "golang.org/x/text"
