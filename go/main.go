@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/lagoon-platform/engine"
-	"github.com/lagoon-platform/installer"
+	"github.com/ekara-platform/engine/util"
+	"github.com/ekara-platform/installer"
 )
 
 type NodeExtraVars struct {
@@ -19,7 +19,7 @@ type NodeExtraVars struct {
 // used to generate the image.
 //
 func main() {
-	c := installer.CreateContext(log.New(os.Stdout, engine.InstallerLogPrefix, log.Ldate|log.Ltime|log.Lmicroseconds))
+	c := installer.CreateContext(log.New(os.Stdout, util.InstallerLogPrefix, log.Ldate|log.Ltime|log.Lmicroseconds))
 	c.LogPrintln(installer.LOG_STARTING)
 	e := installer.Run(c)
 	if e != nil {
