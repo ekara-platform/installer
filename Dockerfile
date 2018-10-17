@@ -1,12 +1,12 @@
 FROM lagoonplatform/ansible-docker-alpine:alpha3
 
-RUN mkdir -p /opt/lagoon/bin
-COPY ./go/installer /opt/lagoon/bin/installer
+RUN mkdir -p /opt/ekara/bin
+COPY ./go/installer /opt/ekara/bin/installer
 
-RUN mkdir -p /opt/lagoon/ansible
-WORKDIR /opt/lagoon/ansible
+RUN mkdir -p /opt/ekara/ansible
+WORKDIR /opt/ekara/ansible
 
-ENTRYPOINT ["/opt/lagoon/bin/installer"]
+ENTRYPOINT ["/opt/ekara/bin/installer"]
 
 
 
