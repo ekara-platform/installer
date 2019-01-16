@@ -20,9 +20,9 @@ type NodeExtraVars struct {
 //
 func main() {
 	c := installer.CreateContext(log.New(os.Stdout, util.InstallerLogPrefix, log.Ldate|log.Ltime|log.Lmicroseconds))
-	c.LogPrintln(installer.LOG_STARTING)
-	e := installer.Run(c)
+	c.Log().Println(installer.LOG_STARTING)
+	e := installer.Run(*c)
 	if e != nil {
-		c.LogFatal(e)
+		c.Log().Fatal(e)
 	}
 }
