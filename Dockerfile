@@ -1,4 +1,4 @@
-FROM ekaraplatform/ansible-docker-alpine:1.0.0-beta1
+FROM ekaraplatform/ansible-docker-alpine:latest
 
 RUN mkdir -p /opt/ekara/bin
 COPY ./go/installer /opt/ekara/bin/installer
