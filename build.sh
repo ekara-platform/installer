@@ -11,7 +11,7 @@ echo https_proxy \$2:  $2
 
 if [ "$1" = "" ]
 then
-    echo "   \$1 : http_proxy setting is required!"
+    docker build -t ekaraplatform/installer .     
 else
 	if [ "$2" = "" ]
 	then
