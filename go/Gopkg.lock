@@ -14,19 +14,19 @@
     "ssh",
     "util"
   ]
-  revision = "8619282e2fede1313925a247d50610ebe7936ac0"
+  revision = "7371e669f8eb00eb5078f1b2438a66d7edf00d39"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/installer"
   packages = ["."]
-  revision = "c86e894ba459c2fc2e51e517580e7019e00d30e9"
+  revision = "2ee637b7fb9ff90b9fb3ae69eba148ef002a1aa4"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/model"
   packages = ["."]
-  revision = "756a4067a38cc11a3d4e9e2fbf10b59bf51e27b9"
+  revision = "9979ed03e776ebd599c3c5c4c08a91a0251ab237"
 
 [[projects]]
   name = "github.com/emirpasic/gods"
