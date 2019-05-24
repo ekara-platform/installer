@@ -14,19 +14,19 @@
     "ssh",
     "util"
   ]
-  revision = "8619282e2fede1313925a247d50610ebe7936ac0"
+  revision = "3495fd8b5f507fa0957992defe0ea6d6c489aa8c"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/installer"
   packages = ["."]
-  revision = "c86e894ba459c2fc2e51e517580e7019e00d30e9"
+  revision = "1510012a93ccbe204b5e417b0b023f3f4e308d20"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/model"
   packages = ["."]
-  revision = "756a4067a38cc11a3d4e9e2fbf10b59bf51e27b9"
+  revision = "a0f4cd3a7cc99e510fc907c00ff0281940a5921a"
 
 [[projects]]
   name = "github.com/emirpasic/gods"
@@ -40,6 +40,21 @@
   ]
   revision = "1615341f118ae12f353cc8a983f35b584342c9b3"
   version = "v1.12.0"
+
+[[projects]]
+  name = "github.com/gobwas/glob"
+  packages = [
+    ".",
+    "compiler",
+    "match",
+    "syntax",
+    "syntax/ast",
+    "syntax/lexer",
+    "util/runes",
+    "util/strings"
+  ]
+  revision = "5ccd90ef52e1e632236f7326478d4faa74f99438"
+  version = "v0.2.3"
 
 [[projects]]
   branch = "master"
