@@ -20,12 +20,14 @@
     "ssh",
     "util"
   ]
+
   revision = "615f71cde0925012aef4c0a46950f6a50e65fe6f"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/installer"
   packages = ["."]
+
   revision = "c362ac6d3cd470df34b56928de6608791d877473"
 
 [[projects]]
