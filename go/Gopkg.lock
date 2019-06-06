@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  revision = "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
+  version = "v1.1.1"
+
+[[projects]]
   branch = "master"
   name = "github.com/ekara-platform/engine"
   packages = [
@@ -14,19 +20,19 @@
     "ssh",
     "util"
   ]
-  revision = "3495fd8b5f507fa0957992defe0ea6d6c489aa8c"
+  revision = "615f71cde0925012aef4c0a46950f6a50e65fe6f"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/installer"
   packages = ["."]
-  revision = "1510012a93ccbe204b5e417b0b023f3f4e308d20"
+  revision = "c362ac6d3cd470df34b56928de6608791d877473"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/model"
   packages = ["."]
-  revision = "a0f4cd3a7cc99e510fc907c00ff0281940a5921a"
+  revision = "c75b47df29645e5a5b61e4ae71d2105e32d1fa29"
 
 [[projects]]
   name = "github.com/emirpasic/gods"
@@ -81,6 +87,12 @@
   version = "v0.2.0"
 
 [[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/sergi/go-diff"
   packages = ["diffmatchpatch"]
   revision = "1744e2970ca51c86172c8190fadad617561ed6e7"
@@ -96,6 +108,12 @@
   ]
   revision = "1ac3a1ac202429a54835fe8408a92880156b489d"
   version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "ffdc059bfe9ce6a4e144ba849dbedead332c6053"
+  version = "v1.3.0"
 
 [[projects]]
   name = "github.com/xanzy/ssh-agent"
