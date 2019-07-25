@@ -20,19 +20,19 @@
     "ssh",
     "util"
   ]
-  revision = "ff1ee0d09d36d892459896868ab6a62a1b1bae4b"
+  revision = "b0075339607c6b5d9091b46d9757d694c5a47cac"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/installer"
   packages = ["."]
-  revision = "299cb088f5cb44d7e674605398436d7d8d98b16d"
+  revision = "225fd5e42a71e22b89b19c0e43764d3ec110e0d1"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/model"
   packages = ["."]
-  revision = "88759bf9322165097b8f3494181551c16363dae0"
+  revision = "351a453406ebc2542ad6808aeda558048352669a"
 
 [[projects]]
   name = "github.com/emirpasic/gods"
@@ -79,6 +79,12 @@
   packages = ["."]
   revision = "af06845cf3004701891bf4fdb884bfe4920b3727"
   version = "v1.1.0"
+
+[[projects]]
+  name = "github.com/oklog/ulid"
+  packages = ["."]
+  revision = "be3bccf06dda9a40aa6800c4736ac77f2fef987f"
+  version = "v2.0.2"
 
 [[projects]]
   name = "github.com/pelletier/go-buffruneio"
@@ -234,6 +240,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "92b1c27bbecc2210b159b80ad1d376e7aea692cd180d76f2884d372a58708fee"
+  inputs-digest = "e57e8b5e45e947854e88741380f0eec649a328bba730930c86052e8428011d64"
   solver-name = "gps-cdcl"
   solver-version = 1
