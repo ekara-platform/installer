@@ -18,7 +18,6 @@ rm -rf ./go/vendor/github.com/ekara-platform/engine/ssh/*.go
 mkdir -p ./go/vendor/github.com/ekara-platform/engine/ssh/
 cp ../engine/ssh/*.go  ./go/vendor/github.com/ekara-platform/engine/ssh/
 
-
 rm -rf ./go/vendor/github.com/ekara-platform/engine/component/*.go
 mkdir -p ./go/vendor/github.com/ekara-platform/engine/component/
 cp ../engine/component/*.go  ./go/vendor/github.com/ekara-platform/engine/component/
@@ -38,8 +37,6 @@ cp ../engine/component/scm/file/*.go  ./go/vendor/github.com/ekara-platform/engi
 rm -rf ./go/vendor/github.com/ekara-platform/engine/component/scm/git/*.go
 mkdir -p ./go/vendor/github.com/ekara-platform/engine/component/scm/git/
 cp ../engine/component/scm/git/*.go  ./go/vendor/github.com/ekara-platform/engine/component/scm/git/
-
-
 
 # Refresh "installer"
 mkdir -p ./go/vendor/github.com/ekara-platform/installer/
