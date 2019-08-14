@@ -10,57 +10,30 @@
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/engine"
-  packages = [
-    ".",
-    "ansible",
-    "component",
-    "component/scm",
-    "component/scm/file",
-    "component/scm/git",
-    "ssh",
-    "util"
-  ]
-  revision = "82c3eb9a3cd5cf613088c847965518570521ad52"
+  packages = [".","ansible","component","component/scm","component/scm/file","component/scm/git","ssh","util"]
+  revision = "9dc5869cfd49a5afe0635c87c38741dbd5665597"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/installer"
   packages = ["."]
-
-  revision = "1b5d4202607cb6dfea8bd60f4b59575342801639"
+  revision = "fc87e89a49827d92120862fedc732aab1ebaa811"
 
 [[projects]]
   branch = "master"
   name = "github.com/ekara-platform/model"
   packages = ["."]
-
-  revision = "2aa5dde34666d72000c26d665fe557803b7b907c"
+  revision = "ad2ed8c325073f72a62fc70d6528b14eed85dc07"
 
 [[projects]]
   name = "github.com/emirpasic/gods"
-  packages = [
-    "containers",
-    "lists",
-    "lists/arraylist",
-    "trees",
-    "trees/binaryheap",
-    "utils"
-  ]
+  packages = ["containers","lists","lists/arraylist","trees","trees/binaryheap","utils"]
   revision = "1615341f118ae12f353cc8a983f35b584342c9b3"
   version = "v1.12.0"
 
 [[projects]]
   name = "github.com/gobwas/glob"
-  packages = [
-    ".",
-    "compiler",
-    "match",
-    "syntax",
-    "syntax/ast",
-    "syntax/lexer",
-    "util/runes",
-    "util/strings"
-  ]
+  packages = [".","compiler","match","syntax","syntax/ast","syntax/lexer","util/runes","util/strings"]
   revision = "5ccd90ef52e1e632236f7326478d4faa74f99438"
   version = "v0.2.3"
 
@@ -108,12 +81,7 @@
 
 [[projects]]
   name = "github.com/src-d/gcfg"
-  packages = [
-    ".",
-    "scanner",
-    "token",
-    "types"
-  ]
+  packages = [".","scanner","token","types"]
   revision = "1ac3a1ac202429a54835fe8408a92880156b489d"
   version = "v1.4.0"
 
@@ -132,24 +100,7 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/crypto"
-  packages = [
-    "cast5",
-    "curve25519",
-    "ed25519",
-    "ed25519/internal/edwards25519",
-    "internal/chacha20",
-    "internal/subtle",
-    "openpgp",
-    "openpgp/armor",
-    "openpgp/elgamal",
-    "openpgp/errors",
-    "openpgp/packet",
-    "openpgp/s2k",
-    "poly1305",
-    "ssh",
-    "ssh/agent",
-    "ssh/knownhosts"
-  ]
+  packages = ["cast5","curve25519","ed25519","ed25519/internal/edwards25519","internal/chacha20","internal/subtle","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","poly1305","ssh","ssh/agent","ssh/knownhosts"]
   revision = "f99c8df09eb5bff426315721bfa5f16a99cad32c"
 
 [[projects]]
@@ -161,69 +112,18 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = [
-    "cpu",
-    "windows"
-  ]
+  packages = ["cpu","windows"]
   revision = "93c9922d18aeb82498a065f07aec7ad7fa60dfb7"
 
 [[projects]]
   name = "gopkg.in/src-d/go-billy.v4"
-  packages = [
-    ".",
-    "helper/chroot",
-    "helper/polyfill",
-    "osfs",
-    "util"
-  ]
+  packages = [".","helper/chroot","helper/polyfill","osfs","util"]
   revision = "982626487c60a5252e7d0b695ca23fb0fa2fd670"
   version = "v4.3.0"
 
 [[projects]]
   name = "gopkg.in/src-d/go-git.v4"
-  packages = [
-    ".",
-    "config",
-    "internal/revision",
-    "internal/url",
-    "plumbing",
-    "plumbing/cache",
-    "plumbing/filemode",
-    "plumbing/format/config",
-    "plumbing/format/diff",
-    "plumbing/format/gitignore",
-    "plumbing/format/idxfile",
-    "plumbing/format/index",
-    "plumbing/format/objfile",
-    "plumbing/format/packfile",
-    "plumbing/format/pktline",
-    "plumbing/object",
-    "plumbing/protocol/packp",
-    "plumbing/protocol/packp/capability",
-    "plumbing/protocol/packp/sideband",
-    "plumbing/revlist",
-    "plumbing/storer",
-    "plumbing/transport",
-    "plumbing/transport/client",
-    "plumbing/transport/file",
-    "plumbing/transport/git",
-    "plumbing/transport/http",
-    "plumbing/transport/internal/common",
-    "plumbing/transport/server",
-    "plumbing/transport/ssh",
-    "storage",
-    "storage/filesystem",
-    "storage/filesystem/dotgit",
-    "storage/memory",
-    "utils/binary",
-    "utils/diff",
-    "utils/ioutil",
-    "utils/merkletrie",
-    "utils/merkletrie/filesystem",
-    "utils/merkletrie/index",
-    "utils/merkletrie/internal/frame",
-    "utils/merkletrie/noder"
-  ]
+  packages = [".","config","internal/revision","internal/url","plumbing","plumbing/cache","plumbing/filemode","plumbing/format/config","plumbing/format/diff","plumbing/format/gitignore","plumbing/format/idxfile","plumbing/format/index","plumbing/format/objfile","plumbing/format/packfile","plumbing/format/pktline","plumbing/object","plumbing/protocol/packp","plumbing/protocol/packp/capability","plumbing/protocol/packp/sideband","plumbing/revlist","plumbing/storer","plumbing/transport","plumbing/transport/client","plumbing/transport/file","plumbing/transport/git","plumbing/transport/http","plumbing/transport/internal/common","plumbing/transport/server","plumbing/transport/ssh","storage","storage/filesystem","storage/filesystem/dotgit","storage/memory","utils/binary","utils/diff","utils/ioutil","utils/merkletrie","utils/merkletrie/filesystem","utils/merkletrie/index","utils/merkletrie/internal/frame","utils/merkletrie/noder"]
   revision = "aa6f288c256ff8baf8a7745546a9752323dc0d89"
   version = "v4.11.0"
 
