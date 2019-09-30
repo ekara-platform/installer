@@ -3,6 +3,3 @@ cd ../engine
 
 cd ../installer
 ./copydep.sh
-
-cd ../installer_image
-./copydep.sh

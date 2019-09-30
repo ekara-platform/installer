@@ -1,44 +1,43 @@
-echo "INSTALLER_IMAGE copydep..."
+echo "INSTALLER copydep..."
 
 # Refresh "model"
-rm -rf ./go/vendor/github.com/ekara-platform/model/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/model/
-cp ../model/*.go  ./go/vendor/github.com/ekara-platform/model/
+rm -rf ./vendor/github.com/ekara-platform/model/*.go
+mkdir -p ./vendor/github.com/ekara-platform/model/
+cp ../model/*.go  ./vendor/github.com/ekara-platform/model/
 
 # Refresh "engine"
-rm -rf ./go/vendor/github.com/ekara-platform/engine/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/
-cp ../engine/*.go  ./go/vendor/github.com/ekara-platform/engine/
+rm -rf ./vendor/github.com/ekara-platform/engine/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/
+cp ../engine/*.go  ./vendor/github.com/ekara-platform/engine/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/ansible/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/ansible/
-cp ../engine/ansible/*.go  ./go/vendor/github.com/ekara-platform/engine/ansible/
+rm -rf ./vendor/github.com/ekara-platform/engine/ansible/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/ansible/
+cp ../engine/ansible/*.go  ./vendor/github.com/ekara-platform/engine/ansible/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/ssh/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/ssh/
-cp ../engine/ssh/*.go  ./go/vendor/github.com/ekara-platform/engine/ssh/
+rm -rf ./vendor/github.com/ekara-platform/engine/action/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/action/
+cp ../engine/action/*.go  ./vendor/github.com/ekara-platform/engine/action/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/component/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/component/
-cp ../engine/component/*.go  ./go/vendor/github.com/ekara-platform/engine/component/
+rm -rf ./vendor/github.com/ekara-platform/engine/ssh/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/ssh/
+cp ../engine/ssh/*.go  ./vendor/github.com/ekara-platform/engine/ssh/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/util/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/util/
-cp ../engine/util/*.go  ./go/vendor/github.com/ekara-platform/engine/util/
+rm -rf ./vendor/github.com/ekara-platform/engine/component/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/component/
+cp ../engine/component/*.go  ./vendor/github.com/ekara-platform/engine/component/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/component/scm/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/component/scm/
-cp ../engine/component/scm/*.go  ./go/vendor/github.com/ekara-platform/engine/component/scm/
+rm -rf ./vendor/github.com/ekara-platform/engine/util/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/util/
+cp ../engine/util/*.go  ./vendor/github.com/ekara-platform/engine/util/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/component/scm/file/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/component/scm/file/
-cp ../engine/component/scm/file/*.go  ./go/vendor/github.com/ekara-platform/engine/component/scm/file/
+rm -rf ./vendor/github.com/ekara-platform/engine/component/scm/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/component/scm/
+cp ../engine/component/scm/*.go  ./vendor/github.com/ekara-platform/engine/component/scm/
 
-rm -rf ./go/vendor/github.com/ekara-platform/engine/component/scm/git/*.go
-mkdir -p ./go/vendor/github.com/ekara-platform/engine/component/scm/git/
-cp ../engine/component/scm/git/*.go  ./go/vendor/github.com/ekara-platform/engine/component/scm/git/
+rm -rf ./vendor/github.com/ekara-platform/engine/component/scm/file/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/component/scm/file/
+cp ../engine/component/scm/file/*.go  ./vendor/github.com/ekara-platform/engine/component/scm/file/
 
-# Refresh "installer"
-mkdir -p ./go/vendor/github.com/ekara-platform/installer/
-rm -rf ./go/vendor/github.com/ekara-platform/installer/*.go
-cp ../installer/*.go  ./go/vendor/github.com/ekara-platform/installer/
+rm -rf ./vendor/github.com/ekara-platform/engine/component/scm/git/*.go
+mkdir -p ./vendor/github.com/ekara-platform/engine/component/scm/git/
+cp ../engine/component/scm/git/*.go  ./vendor/github.com/ekara-platform/engine/component/scm/git/

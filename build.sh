@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
+
 ./copyAllDep.sh
 
 #!/bin/sh
-docker run --rm -v "$PWD/go":/go/src/installer -w /go/src/installer iron/go:dev go build -o installer
+docker run --rm -v "$PWD":/go/src/installer -w /go/src/installer iron/go:dev go build -o installer
 
 if [ "$1" = "" ]
 then
@@ -19,4 +21,3 @@ else
 		docker build --build-arg http_proxy="$1" --build-arg https_proxy="$2" -t ekaraplatform/installer .     
 	fi		
 fi
-
