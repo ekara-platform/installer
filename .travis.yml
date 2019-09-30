@@ -25,7 +25,7 @@ jobs:
           - go test -v $( go list ./...)
 
         before_deploy:  
-          - docker run --rm -v "$PWD/go":/go/src/installer -w /go/src/installer iron/go:dev go build -o installer
+          - docker run --rm -v "$PWD":/go/src/installer -w /go/src/installer iron/go:dev go build -o installer
           - (ls installer && echo yes) || echo no
           - docker build -f Dockerfile -t $IMAGE:$COMMIT ./
 
