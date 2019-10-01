@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/ekara-platform/engine"
   packages = [".","action","ansible","component","component/scm","component/scm/file","component/scm/git","ssh","util"]
-  revision = "04fe499eb5746a5ffe2089039dd1ea277668303d"
+  revision = "5b14b38c1b6ccba815b7135066fb4900b80b92de"
 
 [[projects]]
   branch = "master"
