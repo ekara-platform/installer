@@ -11,16 +11,16 @@ type (
 	//InstallerContext Represents the informations required start the ekara engine
 	// from the installer container
 	installerContext struct {
-		logger               *log.Logger
-		ef                   util.ExchangeFolder
-		descriptorName       string
-		location             string
-		user                 string
-		password             string
-		sshPublicKeyContent  string
-		sshPrivateKeyContent string
-		proxy                model.Proxy
-		extVars              model.Parameters
+		logger         *log.Logger
+		ef             util.ExchangeFolder
+		descriptorName string
+		location       string
+		user           string
+		password       string
+		sshPublicKey   string
+		sshPrivateKey  string
+		proxy          model.Proxy
+		extVars        model.Parameters
 	}
 )
 
@@ -65,13 +65,13 @@ func (c installerContext) Proxy() model.Proxy {
 //SSHPublicKey the public key used by the engine during the process execution to
 // connect the created nodes
 func (c installerContext) SSHPublicKey() string {
-	return c.sshPublicKeyContent
+	return c.sshPublicKey
 }
 
 //SSHPrivateKey the private key used by the engine during the process execution to
 // connect the created nodes
 func (c installerContext) SSHPrivateKey() string {
-	return c.sshPrivateKeyContent
+	return c.sshPrivateKey
 }
 
 func (lC installerContext) ExternalVars() model.Parameters {

@@ -14,6 +14,12 @@ import (
 	"github.com/ekara-platform/engine/util"
 )
 
+const (
+	envHTTPProxy  string = "http_proxy"
+	envHTTPSProxy string = "https_proxy"
+	envNoProxy    string = "no_proxy"
+)
+
 func Run(logger *log.Logger) (e error) {
 	c := createInstallerContext(logger)
 
@@ -75,9 +81,9 @@ func fillContext(c *installerContext) error {
 // context
 func fillProxy(c *installerContext) {
 	c.proxy = model.Proxy{
-		Http:    os.Getenv("http_proxy"),
-		Https:   os.Getenv("https_proxy"),
-		NoProxy: os.Getenv("no_proxy")}
+		Http:    os.Getenv(envHTTPProxy),
+		Https:   os.Getenv(envHTTPSProxy),
+		NoProxy: os.Getenv(envNoProxy)}
 }
 
 func fillExchangeFolder(c *installerContext) error {
@@ -132,18 +138,12 @@ func fillTemplateContext(c *installerContext) error {
 //		NOT; they will be generated and then loaded into the context
 //
 func fillSSHKeys(c *installerContext) error {
-	var generate bool
 	if c.Ef().Input.Contains(util.SSHPuplicKeyFileName) && c.Ef().Input.Contains(util.SSHPrivateKeyFileName) {
-		c.sshPublicKeyContent = filepath.Join(c.Ef().Input.Path(), util.SSHPuplicKeyFileName)
-		c.sshPrivateKeyContent = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
-		generate = false
-		c.Log().Println("SSHKeys not generation required")
+		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPuplicKeyFileName)
+		c.sshPrivateKey = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
+		c.Log().Println("Using provided SSH keys")
 	} else {
-		c.Log().Println("SSHKeys generation required")
-		generate = true
-	}
-
-	if generate {
+		c.Log().Println("Generating a new set of SSH keys")
 		publicKey, privateKey, e := ssh.Generate()
 		if e != nil {
 			return fmt.Errorf(ErrorGeneratingSShKeys, e.Error())
@@ -156,40 +156,13 @@ func fillSSHKeys(c *installerContext) error {
 		if e != nil {
 			return fmt.Errorf("an error occurred saving the private key into: %v", c.Ef().Input.Path())
 		}
-		c.sshPublicKeyContent = filepath.Join(c.Ef().Input.Path(), util.SSHPuplicKeyFileName)
-		c.sshPrivateKeyContent = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
-
-		// If the keys have been generated then they should be cleaned in case
-		// of subsequent errors
-		/*
-			sc.CleanUp = func(c *InstallerContext) func(c *InstallerContext) error {
-				return func(c *InstallerContext) (err error) {
-					if c.log != nil {
-						c.log.Println("Running fSHKeys cleanup")
-						c.log.Printf("Cleaning %s", c.sshPublicKey)
-					}
-
-					err = os.Remove(c.sshPublicKey)
-					if err != nil {
-						return
-					}
-					if c.log != nil {
-						c.log.Printf("Cleaning %s", c.sshPrivateKey)
-					}
-
-					err = os.Remove(c.sshPrivateKey)
-					if err != nil {
-						return
-					}
-					return
-				}
-			}(c)
-		*/
+		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPuplicKeyFileName)
+		c.sshPrivateKey = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
 	}
 
 	if c.Log() != nil {
-		c.Log().Printf(LogSSHPublicKey, c.sshPublicKeyContent)
-		c.Log().Printf(LogSSHPrivateKey, c.sshPrivateKeyContent)
+		c.Log().Printf(LogSSHPublicKey, c.sshPublicKey)
+		c.Log().Printf(LogSSHPrivateKey, c.sshPrivateKey)
 	}
 	return nil
 }
