@@ -26,12 +26,12 @@
 
 
 [[constraint]]
-  branch = "master"
   name = "github.com/ekara-platform/engine"
+  version = "1.0.0"
 
 [[constraint]]
-  branch = "master"
   name = "github.com/ekara-platform/model"
+  version = "1.0.0"
 
 [[constraint]]
   name = "github.com/stretchr/testify"

@@ -10,8 +10,7 @@
   version = "v1.1.1"
 
 [[projects]]
-  branch = "master"
-  digest = "1:ffd90612f83fd63df5df46c659adbfb8080128f40de4db4255b7d16bb23027ae"
+  digest = "1:2a71f70d68e95fd499acdd5582ff07bd53b6778fd0abd3f50ddc5a426c7795bb"
   name = "github.com/ekara-platform/engine"
   packages = [
     ".",
@@ -25,15 +24,16 @@
     "util",
   ]
   pruneopts = "UT"
-  revision = "9976576444124f5ca4a7782c3c612f7c28b4a4cf"
+  revision = "3aaa2dc6c500999d4ec5a6e5ba217615e0dcb3af"
+  version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
   digest = "1:509ded6b49c3206dd83c904d6ff98ee6714c9b0498dabc495dd20368b1a419f5"
   name = "github.com/ekara-platform/model"
   packages = ["."]
   pruneopts = "UT"
   revision = "626ecee3ef13fbf7b587a856dd56bfdab6c96118"
+  version = "v1.0.0"
 
 [[projects]]
   digest = "1:b498b36dbb2b306d1c5205ee5236c9e60352be8f9eea9bf08186723a9f75b4f3"
