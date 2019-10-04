@@ -34,7 +34,3 @@ jobs:
           script: bash deploy.sh
           on:
             all_branches: true
- 
-          
-
-
