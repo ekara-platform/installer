@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/ekara-platform/engine/action"
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/ekara-platform/engine/action"
 
 	"github.com/ekara-platform/model"
 
@@ -20,6 +21,7 @@ const (
 	envNoProxy    string = "no_proxy"
 )
 
+//Run starts the installer
 func Run(logger *log.Logger) (e error) {
 	c := createInstallerContext(logger)
 
@@ -32,7 +34,7 @@ func Run(logger *log.Logger) (e error) {
 	a := os.Getenv(util.ActionEnvVariableKey)
 	switch a {
 	case action.ApplyActionID:
-		c.Log().Println(LogActionApply)
+		c.Log().Println(logActionApply)
 
 		// Fill the SSH keys as they are needed for apply
 		if e := fillSSHKeys(c); e != nil {
@@ -55,10 +57,10 @@ func Run(logger *log.Logger) (e error) {
 		_, e = ekara.ActionManager().Run(action.ApplyActionID)
 	default:
 		if a == "" {
-			a = LogNoAction
+			a = logNoAction
 		}
 		// Bad luck; unsupported action!
-		e = fmt.Errorf(ErrorUnsupportedAction, a)
+		e = fmt.Errorf(errorUnsupportedAction, a)
 	}
 	return
 }
@@ -107,11 +109,11 @@ func fillExchangeFolder(c *installerContext) error {
 func fillLocation(c *installerContext) error {
 	c.location = os.Getenv(util.StarterEnvVariableKey)
 	if c.location == "" {
-		return fmt.Errorf(ErrorRequiredEnv, util.StarterEnvVariableKey)
+		return fmt.Errorf(errorRequiredEnv, util.StarterEnvVariableKey)
 	}
 	c.descriptorName = os.Getenv(util.StarterEnvNameVariableKey)
 	if c.descriptorName == "" {
-		return fmt.Errorf(ErrorRequiredEnv, util.StarterEnvNameVariableKey)
+		return fmt.Errorf(errorRequiredEnv, util.StarterEnvNameVariableKey)
 	}
 	c.user = os.Getenv(util.StarterEnvLoginVariableKey)
 	c.password = os.Getenv(util.StarterEnvPasswordVariableKey)
@@ -124,9 +126,9 @@ func fillTemplateContext(c *installerContext) error {
 		var e error
 		c.extVars, e = model.ParseParameters(util.JoinPaths(c.Ef().Location.Path(), util.ExternalVarsFilename))
 		if e != nil {
-			return fmt.Errorf(ErrorLoadingClientParameters, e)
+			return fmt.Errorf(errorLoadingClientParameters, e)
 		}
-		c.Log().Printf(LogCLiParameters, c.extVars)
+		c.Log().Printf(logCLiParameters, c.extVars)
 	}
 	return nil
 }
@@ -146,7 +148,7 @@ func fillSSHKeys(c *installerContext) error {
 		c.Log().Println("Generating a new set of SSH keys")
 		publicKey, privateKey, e := ssh.Generate()
 		if e != nil {
-			return fmt.Errorf(ErrorGeneratingSShKeys, e.Error())
+			return fmt.Errorf(errorGeneratingSShKeys, e.Error())
 		}
 		_, e = util.SaveFile(c.Ef().Input, util.SSHPuplicKeyFileName, publicKey)
 		if e != nil {
@@ -161,8 +163,8 @@ func fillSSHKeys(c *installerContext) error {
 	}
 
 	if c.Log() != nil {
-		c.Log().Printf(LogSSHPublicKey, c.sshPublicKey)
-		c.Log().Printf(LogSSHPrivateKey, c.sshPrivateKey)
+		c.Log().Printf(logSSHPublicKey, c.sshPublicKey)
+		c.Log().Printf(logSSHPrivateKey, c.sshPrivateKey)
 	}
 	return nil
 }

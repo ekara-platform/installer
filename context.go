@@ -75,8 +75,8 @@ func (c installerContext) SSHPrivateKey() string {
 }
 
 //ExternalVars returns the external variables passed to the installer through the CLI
-func (lC installerContext) ExternalVars() model.Parameters {
-	return lC.extVars
+func (c installerContext) ExternalVars() model.Parameters {
+	return c.extVars
 }
 
 //CreateContext returns a new installer context used to run the engine

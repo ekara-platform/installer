@@ -16,7 +16,7 @@ const ekaraWorkDir = "/var/lib/ekara"
 //
 func main() {
 	logger := log.New(os.Stdout, util.InstallerLogPrefix, log.Ldate|log.Ltime|log.Lmicroseconds)
-	logger.Println(LogStarting)
+	logger.Println(logStarting)
 	e := Run(logger)
 	if e != nil {
 		logger.Fatal(e)
