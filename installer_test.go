@@ -53,5 +53,4 @@ func TestWrongActions(t *testing.T) {
 	checkUnsupportedAction(t, action.CheckActionID)
 	checkUnsupportedAction(t, action.DumpActionID)
 	checkUnsupportedAction(t, action.NilActionID)
-	checkUnsupportedAction(t, action.FailOnErrorActionID)
 }
