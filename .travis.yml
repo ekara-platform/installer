@@ -10,7 +10,7 @@ env:
     - IMAGE=installer
 
 script: 
-  - docker run --rm -v "$PWD":/go/src/installer -w /go/src/installer iron/go:dev go build -o installer
+  - docker run --rm -v "$PWD":/go/src/installer -w /go/src/installer golang:1.13-alpine go build -o installer
   - docker build -f Dockerfile -t $IMAGE:$COMMIT ./
 
 deploy:
