@@ -19,6 +19,3 @@ then
 else 
 	echo "Pull Resquest skip deploy"
 fi
-
-
-
