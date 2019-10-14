@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-docker run --rm -v "$PWD":/go/src/installer -w /go/src/installer golang:1.13-alpine go build -o installer
+docker run --rm -v "$(dirname "$PWD")":/go/src -w /go/src/installer golang:1.13-alpine go build -o installer
 
 if [[ "$1" = "" ]]
 then
