@@ -55,6 +55,9 @@ func Run(logger *log.Logger) (e error) {
 		}
 
 		_, e = ekara.ActionManager().Run(action.ApplyActionID)
+		if e != nil {
+			return e
+		}
 	default:
 		if a == "" {
 			a = logNoAction
