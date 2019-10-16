@@ -54,10 +54,17 @@ func Run(logger *log.Logger) (e error) {
 			return e
 		}
 
-		_, e = ekara.ActionManager().Run(action.ApplyActionID)
+		applyResult, e := ekara.ActionManager().Run(action.ApplyActionID)
 		if e != nil {
 			return e
 		}
+		logger.Println("----------------------------------------------------------------------")
+		logger.Println("Inventory")
+		logger.Println("----------------------------------------------------------------------")
+		for _, host := range applyResult.(action.ApplyResult).Inventory.Hosts {
+			logger.Println(host.Name)
+		}
+		logger.Println("----------------------------------------------------------------------")
 	default:
 		if a == "" {
 			a = logNoAction

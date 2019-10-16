@@ -10,7 +10,7 @@ import (
 )
 
 func TestReadingParam(t *testing.T) {
-	ef, e := util.CreateExchangeFolder("./", "testFolfer")
+	ef, e := util.CreateExchangeFolder("./", "testFolder")
 	assert.Nil(t, e)
 	assert.NotNil(t, ef)
 	defer ef.Delete()
