@@ -12,6 +12,7 @@ type (
 	// from the installer container
 	installerContext struct {
 		logger         *log.Logger
+		verbosity      int
 		ef             util.ExchangeFolder
 		descriptorName string
 		location       string
@@ -44,9 +45,14 @@ func (c installerContext) Password() string {
 	return c.password
 }
 
-//Log the looger to used during the ekara execution
+//Log the logger to used during the ekara execution
 func (c installerContext) Log() *log.Logger {
 	return c.logger
+}
+
+//Verbosity is the level of requested verbosity for the engine (0, 1 or 2).
+func (c installerContext) Verbosity() int {
+	return c.verbosity
 }
 
 //Ef the exchange folder where to find informations required

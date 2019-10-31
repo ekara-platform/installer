@@ -3,7 +3,7 @@ module github.com/ekara-platform/installer
 go 1.13
 
 require (
-	github.com/ekara-platform/engine v1.0.1-0.20191014202246-61e5e2bb8cc3
+	github.com/ekara-platform/engine v1.0.1-0.20191024085750-e77e9ef0e12d
 	github.com/ekara-platform/model v1.0.0
 	github.com/stretchr/testify v1.4.0
 	golang.org/x/crypto v0.0.0-20190927123631-a832865fa7ad // indirect

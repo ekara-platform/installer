@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strconv"
 
 	"github.com/ekara-platform/engine/action"
 
@@ -77,6 +78,7 @@ func Run(logger *log.Logger) (e error) {
 
 func fillContext(c *installerContext) error {
 	fillProxy(c)
+	fillVerbosity(c)
 	if e := fillExchangeFolder(c); e != nil {
 		return e
 	}
@@ -89,13 +91,22 @@ func fillContext(c *installerContext) error {
 	return nil
 }
 
-// fillProxy loads the proxy settings form the environmant variables into the
+// fillProxy loads the proxy settings form the environment variables into the
 // context
 func fillProxy(c *installerContext) {
 	c.proxy = model.Proxy{
 		Http:    os.Getenv(envHTTPProxy),
 		Https:   os.Getenv(envHTTPSProxy),
 		NoProxy: os.Getenv(envNoProxy)}
+}
+
+// fillVerbosity fills the engine verbosity level based on an environment variable
+func fillVerbosity(c *installerContext) {
+	var err error
+	c.verbosity, err = strconv.Atoi(os.Getenv(util.StarterVerbosityVariableKey))
+	if err != nil {
+		c.verbosity = 2
+	}
 }
 
 func fillExchangeFolder(c *installerContext) error {
@@ -150,8 +161,8 @@ func fillTemplateContext(c *installerContext) error {
 //		NOT; they will be generated and then loaded into the context
 //
 func fillSSHKeys(c *installerContext) error {
-	if c.Ef().Input.Contains(util.SSHPuplicKeyFileName) && c.Ef().Input.Contains(util.SSHPrivateKeyFileName) {
-		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPuplicKeyFileName)
+	if c.Ef().Input.Contains(util.SSHPublicKeyFileName) && c.Ef().Input.Contains(util.SSHPrivateKeyFileName) {
+		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPublicKeyFileName)
 		c.sshPrivateKey = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
 		c.Log().Println("Using provided SSH keys")
 	} else {
@@ -160,7 +171,7 @@ func fillSSHKeys(c *installerContext) error {
 		if e != nil {
 			return fmt.Errorf(errorGeneratingSShKeys, e.Error())
 		}
-		_, e = util.SaveFile(c.Ef().Input, util.SSHPuplicKeyFileName, publicKey)
+		_, e = util.SaveFile(c.Ef().Input, util.SSHPublicKeyFileName, publicKey)
 		if e != nil {
 			return fmt.Errorf("an error occurred saving the public key into: %v", c.Ef().Input.Path())
 		}
@@ -168,7 +179,7 @@ func fillSSHKeys(c *installerContext) error {
 		if e != nil {
 			return fmt.Errorf("an error occurred saving the private key into: %v", c.Ef().Input.Path())
 		}
-		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPuplicKeyFileName)
+		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPublicKeyFileName)
 		c.sshPrivateKey = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
 	}
 
