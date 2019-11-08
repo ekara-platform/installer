@@ -24,6 +24,7 @@ type (
 	installerContext struct {
 		fN             util.FeedbackNotifier
 		logger         *log.Logger
+		skip           int
 		verbosity      int
 		ef             util.ExchangeFolder
 		descriptorName string
@@ -64,6 +65,11 @@ func (c installerContext) Password() string {
 //Log the logger to used during the ekara execution
 func (c installerContext) Log() *log.Logger {
 	return c.logger
+}
+
+//Skip is the level of requested skipping for the engine (0, 1 or 2).
+func (c installerContext) Skipping() int {
+	return c.skip
 }
 
 //Verbosity is the level of requested verbosity for the engine (0, 1 or 2).
@@ -109,6 +115,7 @@ func createInstallerContext(l *log.Logger) *installerContext {
 func fillContext(c *installerContext) error {
 	fillProxy(c)
 	fillVerbosity(c)
+	fillSkipping(c)
 	if e := fillExchangeFolder(c); e != nil {
 		return e
 	}
@@ -128,6 +135,15 @@ func fillProxy(c *installerContext) {
 		Http:    os.Getenv(envHTTPProxy),
 		Https:   os.Getenv(envHTTPSProxy),
 		NoProxy: os.Getenv(envNoProxy)}
+}
+
+// fillSkipping fills the engine skipping level based on an environment variable
+func fillSkipping(c *installerContext) {
+	var err error
+	c.skip, err = strconv.Atoi(os.Getenv(util.ActionEnvVariableSkip))
+	if err != nil {
+		c.skip = 0
+	}
 }
 
 // fillVerbosity fills the engine verbosity level based on an environment variable
