@@ -11,9 +11,9 @@ import (
 )
 
 //Run starts the installer
-func Run(c *installerContext) (e error) {
+func Run(c *installerContext) (error) {
 	// Fill launch context common properties
-	e = fillContext(c)
+	e := fillContext(c)
 	if e != nil {
 		return e
 	}
@@ -23,26 +23,21 @@ func Run(c *installerContext) (e error) {
 	switch a {
 	case action.ApplyActionID:
 		c.Log().Println(logActionApply)
-
-		// Fill the SSH keys as they are needed for apply
+		// Fill the SSH keys as they are needed for apply and destroy
 		if e := fillSSHKeys(c); e != nil {
 			return e
 		}
-
-		// Create the engine
-		var ekara engine.Ekara
-		ekara, e = engine.Create(c, ekaraWorkDir)
-		if e != nil {
-			return
-		}
-
-		// Initialize it to build the environment
-		e = ekara.Init()
+		result, e = executeAction(c, action.ApplyActionID)
 		if e != nil {
 			return e
 		}
-
-		result, e = ekara.ActionManager().Run(action.ApplyActionID)
+	case action.DestroyActionID:
+		c.Log().Println(logActionDestroy)
+		// Fill the SSH keys as they may be needed for destroy
+		if e := fillSSHKeys(c); e != nil {
+			return e
+		}
+		result, e = executeAction(c, action.DestroyActionID)
 		if e != nil {
 			return e
 		}
@@ -55,9 +50,9 @@ func Run(c *installerContext) (e error) {
 	}
 
 	if result != nil {
-		str, err := result.AsJson()
-		if err != nil {
-			return err
+		str, e := result.AsJson()
+		if e != nil {
+			return e
 		}
 		var path string
 		path, e = util.SaveFile(c.Ef().Output, "result.json", []byte(str))
@@ -66,5 +61,22 @@ func Run(c *installerContext) (e error) {
 		}
 		c.logger.Printf("Action result written in %s\n", path)
 	}
-	return
+	return nil
+}
+
+func executeAction(c *installerContext, action action.ActionID) (action.Result, error) {
+	// Create the engine
+	var ekara engine.Ekara
+	var e error
+	ekara, e = engine.Create(c, ekaraWorkDir)
+	if e != nil {
+		return nil, e
+	}
+	// Initialize it to build the environment
+	e = ekara.Init()
+	if e != nil {
+		return nil, e
+	}
+	// Execute the action
+	return ekara.ActionManager().Run(action)
 }
