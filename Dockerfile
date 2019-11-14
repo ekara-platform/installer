@@ -1,4 +1,4 @@
-FROM ekaraplatform/base:v1.0.0
+FROM ekaraplatform/base:latest
 
 RUN mkdir -p /opt/ekara/bin
 COPY ./installer /opt/ekara/bin/installer
