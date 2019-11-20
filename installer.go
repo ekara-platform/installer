@@ -11,7 +11,7 @@ import (
 )
 
 //Run starts the installer
-func Run(c *installerContext) (error) {
+func Run(c *installerContext) error {
 	// Fill launch context common properties
 	e := fillContext(c)
 	if e != nil {
@@ -46,7 +46,7 @@ func Run(c *installerContext) (error) {
 			a = logNoAction
 		}
 		// Bad luck; unsupported action!
-		e = fmt.Errorf(errorUnsupportedAction, a)
+		return fmt.Errorf(errorUnsupportedAction, a)
 	}
 
 	if result != nil {

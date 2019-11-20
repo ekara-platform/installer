@@ -9,9 +9,9 @@ const (
 	logStarting string = "Starting the installer..."
 	logRunning  string = "Running the installer..."
 
-	logActionApply string = "Apply action requested"
+	logActionApply   string = "Apply action requested"
 	logActionDestroy string = "Destroy action requested"
-	logNoAction    string = "No action specified"
+	logNoAction      string = "No action specified"
 
 	logSSHPublicKey  string = "Installer using SSH public key: %s"
 	logSSHPrivateKey string = "Installer using SSH private key: %s"
