@@ -34,14 +34,14 @@ func TestNoAction(t *testing.T) {
 	os.Setenv(util.StarterEnvVariableKey, "DummyDescriptor")
 	os.Setenv(util.StarterEnvNameVariableKey, "DummyDescriptorName")
 
-	e := Run(log.New(os.Stdout, "TEST: ", log.Ldate|log.Ltime|log.Lmicroseconds))
+	e := Run(createInstallerContext(log.New(os.Stdout, "TEST: ", log.Ldate|log.Ltime|log.Lmicroseconds)))
 	assert.NotNil(t, e)
 	assert.Equal(t, "the action \"No action specified\" is not supported by the installer", e.Error())
 }
 
 func checkUnsupportedAction(t *testing.T, a action.ActionID) {
 	os.Setenv(util.ActionEnvVariableKey, a.String())
-	e := Run(log.New(os.Stdout, "TEST: ", log.Ldate|log.Ltime|log.Lmicroseconds))
+	e := Run(createInstallerContext(log.New(os.Stdout, "TEST: ", log.Ldate|log.Ltime|log.Lmicroseconds)))
 	assert.NotNil(t, e)
 	assert.Equal(t, e.Error(), fmt.Sprintf("the action \"%s\" is not supported by the installer", a))
 }
