@@ -217,16 +217,16 @@ func fillSSHKeys(c *installerContext) error {
 		if e != nil {
 			return fmt.Errorf(errorGeneratingSShKeys, e.Error())
 		}
-		_, e = util.SaveFile(c.Ef().Input, util.SSHPublicKeyFileName, publicKey)
+		c.sshPublicKey, e = util.SaveFile(c.Ef().Input, util.SSHPublicKeyFileName, publicKey)
 		if e != nil {
 			return fmt.Errorf("an error occurred saving the public key into: %v", c.Ef().Input.Path())
 		}
-		_, e = util.SaveFile(c.Ef().Input, util.SSHPrivateKeyFileName, privateKey)
+		_ = os.Chmod(c.sshPublicKey, 0600)
+		c.sshPrivateKey, e = util.SaveFile(c.Ef().Input, util.SSHPrivateKeyFileName, privateKey)
 		if e != nil {
 			return fmt.Errorf("an error occurred saving the private key into: %v", c.Ef().Input.Path())
 		}
-		c.sshPublicKey = filepath.Join(c.Ef().Input.Path(), util.SSHPublicKeyFileName)
-		c.sshPrivateKey = filepath.Join(c.Ef().Input.Path(), util.SSHPrivateKeyFileName)
+		_ = os.Chmod(c.sshPrivateKey, 0600)
 	}
 
 	if c.Log() != nil {
