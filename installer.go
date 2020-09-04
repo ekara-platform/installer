@@ -80,7 +80,7 @@ func executeAction(c *installerContext, action action.ActionID) (action.Result, 
     }
 
     // Execute the action
-    return ekara.ActionManager().Run(action)
+    return ekara.Execute(action)
 }
 
 func buildRepositoryFromEnv() (componentizer.Repository, error) {
